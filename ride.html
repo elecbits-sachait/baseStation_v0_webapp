@@ -2,6 +2,7 @@
 <html lang="en">
    <head>
       <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+      <link rel="icon" href="https://classroom.elecbits.in/wp-content/uploads/2018/12/cropped-transymbol-32x32.png" sizes="32x32">
       <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
       <link rel="stylesheet" href="css/ride.css">
       <link rel="stylesheet" href="css/message.css">
@@ -13,45 +14,34 @@
       <meta name="author" content="">
       <title>EBS App</title>
       <!-- Custom fonts for this template-->
-      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+      
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
       <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
       <!-- Custom styles for this template-->
       <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-      
-
-     <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
-
-
-
+      <!-- Angular Material style sheet -->
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+         rel="stylesheet">
+      <link rel="stylesheet" href="css/custom.css">
       <!-- Scripts for mqtt -->
       <!-- <script src="js/index.js"></script> -->
-      
-
    </head>
-   <body id="page-top" ng-app="myApp" ng-controller="myCtrl">
-
+   <body id="page-top" class="sidebar-toggled" ng-app="myApp" ng-controller="myCtrl">
       <!-- Scripts for angular material -->
-
       <!-- Angular Material requires Angular.js Libraries -->
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
-
-     <!-- Angular Material Library -->
-     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
-
-
-
-
-
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+      <!-- Angular Material Library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
       <!-- Page Wrapper -->
       <div id="wrapper">
          <!-- Sidebar -->
-         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <img style="width: 78%;margin: 24px;" src="https://classroom.elecbits.in/wp-content/uploads/2018/12/eb_new-4-3.png">
+         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+            <img class="d-none d-sm-block" style="width: 78%;margin: 24px;" src="https://classroom.elecbits.in/wp-content/uploads/2018/12/eb_new-4-3.png">
+            <img class="d-sm-none" style="width: 78%;margin: 10px;" src="https://classroom.elecbits.in/wp-content/uploads/2018/12/eb_new-4-3.png">
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
@@ -61,8 +51,10 @@
                <span>Dashboard</span></a>
             </li>
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <div class="text-center">
+               <button class="rounded-circle border-0" id="sidebarToggle">
+                  <i style="margin-top: 3px" class="material-icons text-gray-300">chevron_right</i>
+               </button>
             </div>
          </ul>
          <!-- End of Sidebar -->
@@ -81,11 +73,11 @@
                      <!-- Nav Item - User Information -->
                      <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hayagriva Arora</span>
+                        <span ng-cloak class="mr-2 d-none d-lg-inline text-gray-600 small">{{email}}</span>
                         <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grohttps://in.linkedin.com/in/soumya-singh-159602101w-in" aria-labelledby="userDropdown">
                            <a class="dropdown-item" href="#">
                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                            Profile
@@ -110,46 +102,176 @@
                <!-- End of Topbar -->
                <!-- Begin Page Content -->
                <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="card shadow mb-4">
-                      <div class="card-header">
-                        Add Contact
-                      </div>
-                      <div class="card-body">
-                        <form novalidate>
-                        <input type="text" ng-model="name" class="form-control form-control-user" placeholder="Enter Name"><br>
-                        <input type="text" ng-model="mobileNumber" class="form-control form-control-user" placeholder="Enter Mobile Number">
-                        <br>
-                        <a ng-click="postUnicorn()" class="btn btn-primary">
-                    <span class="text" style="color: white">Save</span>
-                  </a>
-                        <!-- <button ng-click="postUnicorn()">SUBMIT</button> -->
-                     </form>
-                      </div>
-                    </div>
+                  <!-- Page Heading -->
+                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                     <h1 class="h3 mb-0 text-gray-800" ng-cloak>Welcome {{email}}!</h1>
+                     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                   </div>
-                  <div class="col-md-6">
-                    <div class="card shadow" style="padding: 14px; margin-bottom: 10px" ng-repeat="person in persons" ng-click="deletePerson(person)"><i class="fas fa-user"></i><span>{{person.name}}&nbsp;&nbsp;{{person.mobileNumber}}</span></div>
 
-                   <div class="block" id="connecting-div" style="color: white"></div>
-                   
-
-   
-
-   <md-radio-group ng-model="mode" ng-change="postMode(mode)">
-
-      <md-radio-button value="auto" class="md-primary">Auto</md-radio-button>
-      <md-radio-button value="manual"> Manual </md-radio-button>
-
-    </md-radio-group>
-    {{deviceMode}}
-
-
-
-
+                  <div class="row">
+                     <!-- Earnings (Monthly) Card Example -->
+                     <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                           <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                 <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Mode</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{mode ? (mode | uppercase) : 'Not set'}}</div>
+                                 </div>
+                                 <div class="col-auto">
+                                    <i style="font-size: 38px" class="material-icons">rss_feed</i>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Earnings (Monthly) Card Example -->
+                     <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                           <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                 <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Contacts</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{persons.length ? persons.length : 'No contacts'}}</div>
+                                 </div>
+                                 <div class="col-auto">
+                                    <i style="font-size: 38px" class="material-icons">person</i>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Earnings (Monthly) Card Example -->
+                     <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                           <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                 <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Live Feed</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">4:03 mins</div>
+                                 </div>
+                                 <div class="col-auto">
+                                    <i style="font-size: 38px" class="material-icons">videocam</i>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Pending Requests Card Example -->
+                     <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                           <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                 <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Sensors</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                 </div>
+                                 <div class="col-auto">
+                                    <i style="font-size: 38px" class="material-icons">rss_feed</i>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
+
+                  <md-button class="md-fab md-primary pos-fix" aria-label="Use Android">
+                     <md-tooltip
+              md-direction="top">
+              See Live Feed
+            </md-tooltip>
+          <i style="font-size: 38px; color: white; margin-right: 0px; margin-top: 10px" class="material-icons">videocam</i>
+        </md-button>
+
+
+
+                  <!-- Content Row -->
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="card shadow mb-4">
+                           <div class="card-header">
+                              <h6 class="m-0 font-weight-bold text-primary">Add Contact</h6>
+                           </div>
+                           <div class="card-body">
+                              <form novalidate>
+                                 <input type="text" ng-model="name" class="form-control form-control-user" placeholder="Enter Name"><br>
+                                 <input type="text" ng-model="mobileNumber" class="form-control form-control-user" placeholder="Enter Mobile Number">
+                                 <br>
+                                 <a ng-click="postUnicorn()" class="btn btn-primary">
+                                 <span class="text" style="color: white">Save</span>
+                                 </a>
+                                 <!-- <button ng-click="postUnicorn()">SUBMIT</button> -->
+                              </form>
+                           </div>
+                        </div>
+
+                        <!-- <div class="card shadow" style="padding: 14px; margin-bottom: 10px" ng-repeat="person in persons" ng-click="deletePerson(person.mobileNumber)"><i class="fas fa-user"></i><span>{{person.name}}&nbsp;&nbsp;{{person.mobileNumber}}</span>
+                        </div> -->
+
+
+                        <md-list flex>
+                                 <md-list-item ng-repeat="person in persons" class="md-2-line contact-list" ng-click="deletePerson(person.mobileNumber)">
+                                    <i class="material-icons">
+                                    person
+                                    </i>
+                                    <div class="md-list-item-text">
+                                       <h3>{{person.name}}</h3>
+                                       <p>{{person.mobileNumber}}</p>
+                                    </div>
+                                 </md-list-item>
+                          </md-list>
+                        
+                     </div>
+                     <div class="col-md-6">
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                              <h6 class="m-0 font-weight-bold text-primary">Change Device Mode</h6>
+                           </div>
+                           <div class="card-body">
+                              <md-radio-group ng-model="mode" ng-change="postMode(mode)">
+                                 <md-radio-button value="auto" class="md-primary">Auto</md-radio-button>
+                                 <md-radio-button value="manual"> Manual </md-radio-button>
+                              </md-radio-group>
+                           </div>
+                        </div>
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                              <h6 class="m-0 font-weight-bold text-primary">Notifications</h6>
+                           </div>
+                           <div class="card-body">
+                              <md-list flex>
+                                 <md-list-item class="md-2-line">
+                                    <i class="material-icons">
+                                    directions_run
+                                    </i>
+                                    <div class="md-list-item-text">
+                                       <h3>Motion detected!</h3>
+                                       <p>at 3:23 pm</p>
+                                    </div>
+                                 </md-list-item>
+                                 <md-list-item class="md-2-line">
+                                    <i class="material-icons">
+                                    directions_run
+                                    </i>
+                                    <div class="md-list-item-text">
+                                       <h3>Motion detected!</h3>
+                                       <p>at 3:23 pm</p>
+                                    </div>
+                                 </md-list-item>
+                                 <md-list-item class="md-2-line">
+                                    <i class="material-icons">
+                                    directions_run
+                                    </i>
+                                    <div class="md-list-item-text">
+                                       <h3>Motion detected!</h3>
+                                       <p>at 3:23 pm</p>
+                                    </div>
+                                 </md-list-item>
+                              </md-list>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
                <!-- /.container-fluid -->
             </div>
@@ -168,9 +290,9 @@
       </div>
       <!-- End of Page Wrapper -->
       <!-- Scroll to Top Button-->
-      <a class="scroll-to-top rounded" href="#page-top">
+      <!-- <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
-      </a>
+      </a> -->
       <!-- Logout Modal-->
       <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog" role="document">
@@ -205,8 +327,7 @@
       <script src="js/cognito-auth.js"></script>
       <script src="js/esri-map.js"></script>
       <script src="js/ride.js"></script>
-
       <!-- <script src="js/aws-iot-sdk-browser-bundle.js"></script>
-      <script src="js/bundle.js"></script> -->
+         <script src="js/bundle.js"></script> -->
    </body>
 </html>

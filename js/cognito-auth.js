@@ -29,18 +29,46 @@ var WildRydes = window.WildRydes || {};
         userPool.getCurrentUser().signOut();
     };
 
+    // WildRydes.getDeviceId = new Promise (function getDeviceId(resolve, reject) {
+    //     var cognitoUser = userPool.getCurrentUser();
+    //     if (cognitoUser) {
+    //         cognitoUser.getSession(function sessionCallback(err, session) {
+    //         userPool.getUserAttributes(function(err, result) {
+    //             if (err) {
+    //                 alert(err);
+    //                 return;
+    //                 }
+    //             resolve(result);
+    //             });   
+    //         });
+    //     }
+        
+    // });
+
     WildRydes.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
         var cognitoUser = userPool.getCurrentUser();
 
         if (cognitoUser) {
-            console.log("userPool", userPool, "cognitoUser", cognitoUser);
+            //console.log("userPool", userPool, "cognitoUser", cognitoUser);
             cognitoUser.getSession(function sessionCallback(err, session) {
+                var attributes;
                 if (err) {
                     reject(err);
                 } else if (!session.isValid()) {
                     resolve(null);
                 } else {
-                    resolve(session.getIdToken().getJwtToken());
+                    token = session.getIdToken().getJwtToken();
+
+                    // cognitoUser.getUserAttributes(function(err, result) {
+                    //     if (err) {
+                    //         alert(err);
+                    //         return;
+                    //     }
+                    // attributes = result;
+                    // console.log('attributes', result);
+                    // });
+                    resolve(token);
+
                 }
             });
         } else {
@@ -49,22 +77,34 @@ var WildRydes = window.WildRydes || {};
     });
 
 
+
+
+
     /*
      * Cognito User Pool functions
      */
 
-    function register(email, password, onSuccess, onFailure) {
+    function register(email, deviceId, password, onSuccess, onFailure) {
         var dataEmail = {
             Name: 'email',
             Value: email
         };
-        var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
 
-        userPool.signUp(email, password, [attributeEmail], null,
+        var dataDeviceId = {
+            Name: 'custom:device_id',
+            Value: deviceId
+        };
+
+        var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
+        var attributeDeviceId = new AmazonCognitoIdentity.CognitoUserAttribute(dataDeviceId);
+
+        userPool.signUp(email, password, [attributeEmail, attributeDeviceId], null,
             function signUpCallback(err, result) {
                 if (!err) {
+                    console.log('result', result);
                     onSuccess(result);
                 } else {
+                    console.log('err', err);
                     onFailure(err);
                 }
             }
@@ -130,6 +170,7 @@ var WildRydes = window.WildRydes || {};
         var email = $('#emailInputRegister').val();
         var password = $('#passwordInputRegister').val();
         var password2 = $('#password2InputRegister').val();
+        var deviceId = $('#deviceIdInputRegister').val();
 
         var onSuccess = function registerSuccess(result) {
             var cognitoUser = result.user;
@@ -145,7 +186,7 @@ var WildRydes = window.WildRydes || {};
         event.preventDefault();
 
         if (password === password2) {
-            register(email, password, onSuccess, onFailure);
+            register(email, deviceId, password, onSuccess, onFailure);
         } else {
             alert('Passwords do not match');
         }

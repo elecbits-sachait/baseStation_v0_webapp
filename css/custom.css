@@ -1,0 +1,46 @@
+md-card {
+	padding: 0 18px;
+}
+
+md-card md-card-title {
+    padding: 20px 0px 16px !important;
+}
+
+.material-icons {
+	font-size: 32px;
+	margin-right: 10px;
+	color: #b9b9b9;
+}
+
+md-list-item.md-2-line {
+	align-items: center;
+	padding-left: 0px;
+}
+
+md-list {
+	padding: 0px;
+}
+
+.contact-list {
+	    /* border: 1px solid #dedede; */
+    border-radius: 7px;
+    background: white;
+    margin:16px  0;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+}
+
+.pos-fix {
+	position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 24px;
+}
+
+.md-button.md-primary.md-fab {
+	background-color: #4e73df!important;
+	color: white
+}
+
+.sidebar #sidebarToggle::after, .sidebar.toggled #sidebarToggle::after {
+	display: none!important;
+}

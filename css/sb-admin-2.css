@@ -11234,11 +11234,11 @@ a:focus {
   overflow: hidden;
 }
 
-.sidebar.toggled #sidebarToggle::after {
+/*.sidebar.toggled #sidebarToggle::after {
   content: '\f105';
   font-family: 'Font Awesome 5 Free';
   margin-left: 0.25rem;
-}
+}*/
 
 .sidebar .sidebar-brand {
   height: 4.375rem;
