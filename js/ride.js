@@ -19,7 +19,7 @@ app.controller('myCtrl', function ($scope, $http) {
             $scope.email = $scope.parsedAuthToken.email;
             console.log('email', $scope.email);
             $scope.cognitoUserID = $scope.parsedAuthToken.sub
-            $scope.getUnicorn();
+            $scope.getMobileNumber();
             $scope.getMode();
             $scope.getSensorValues();
 
@@ -31,7 +31,7 @@ app.controller('myCtrl', function ($scope, $http) {
          //window.location.href = '/signin.html';
     });
 
-    $scope.getUnicorn = function() {
+    $scope.getMobileNumber = function() {
         $http({
             method: "GET",
             params: {'deviceId': $scope.deviceId},
@@ -66,7 +66,7 @@ app.controller('myCtrl', function ($scope, $http) {
             contentType: 'application/json'
         }).then(function mySuccess(response) {
             if(response.status == 201) {
-                $scope.getUnicorn();
+                $scope.getMobileNumber();
             }
             console.log(response);
         }, function myError(response) {
@@ -90,7 +90,7 @@ app.controller('myCtrl', function ($scope, $http) {
         }).then(function mySuccess(response) {
             if(response.status == 201) {
                 console.log('response', response);
-                //$scope.getUnicorn();
+                //$scope.getMobileNumber();
             }
            // console.log(response);
         }, function myError(response) {
@@ -136,7 +136,7 @@ app.controller('myCtrl', function ($scope, $http) {
             contentType: 'application/json'
         }).then(function mySuccess(response) {
             if(response.status == 200) {
-                $scope.getUnicorn();
+                $scope.getMobileNumber();
             }
         }, function myError(response) {
             console.log(response);
