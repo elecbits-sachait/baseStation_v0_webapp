@@ -125,6 +125,11 @@
                            </div>
                         </div>
                      </div>
+                     
+
+                    <iframe id="triggerCapture" style="display: none;" src="http://35.239.70.45/test.php"></iframe>
+
+
                      <!-- Earnings (Monthly) Card Example -->
                      <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-success shadow h-100 py-2">
@@ -234,6 +239,51 @@
                               </md-radio-group>
                            </div>
                         </div>
+
+
+                        <div class="card shadow mb-4">
+                           <div class="card-header py-3">
+                              <h6 class="m-0 font-weight-bold text-primary">Camera Actions</h6>
+                           </div>
+                           <div class="card-body">
+
+                              <button type="button" class="btn btn-primary cam-control-btn" data-toggle="modal" data-target="#myModal" ng-click="captureImg()">
+                                 <i class="material-icons">camera_alt</i>
+                                 <span>Capture Screenshot</span>
+                              </button>
+
+                              <button  onclick="window.open('cam.html','_blank');" type="button" class="btn btn-primary cam-control-btn">
+                                 <i class="material-icons">videocam</i>
+                                 <span>View Camera Feed</span>
+                              </button>
+
+                                       <!-- Modal -->
+                             <div class="modal fade" id="myModal" role="dialog">
+                               <div class="modal-dialog">
+                               
+                                 <!-- Modal content-->
+                                 <div class="modal-content">
+                                   <div class="modal-header">
+                                     <button type="button" class="close" ng-click="removeReload()" data-dismiss="modal">&times;</button>
+                                   </div>
+                                   <div class="modal-body" >
+                                    <iframe id="screenshot" src="http://35.239.70.45:8008/snap.png"></iframe>
+                                   </div>
+                                 </div>
+                                 
+                               </div>
+                             </div>
+                           </div>
+                        </div>
+
+
+
+
+
+
+
+
+
                         <div class="card shadow mb-4">
                            <div class="card-header py-3">
                               <h6 class="m-0 font-weight-bold text-primary">Notifications</h6>

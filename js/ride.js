@@ -179,4 +179,23 @@ app.controller('myCtrl', function ($scope, $http) {
         alert("You have been signed out.");
         window.location = "signin.html";
     }
+
+    window.setIntervalVar;
+
+    $scope.captureImg = function() {
+        console.log('capture initiated');
+        var iframe = document.getElementById('triggerCapture');
+        iframe.src = iframe.src;
+        window.setIntervalVar = setInterval("document.getElementById('screenshot').src='http://35.239.70.45:8008/snap.png';", 2000);
+    }
+
+    $scope.removeReload = function() {
+        clearInterval(window.setIntervalVar);
+    }
+
+    
+    
+
+
+    
 });
