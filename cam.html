@@ -1,22 +1,18 @@
 <!doctype html>
-<html style="width:100%">
+<html>
 <head>
-    <title>Basic RTMP with red5 : Flowplayer</title>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+    <link rel="icon" href="https://classroom.elecbits.in/wp-content/uploads/2018/12/cropped-transymbol-32x32.png" sizes="32x32">
+    <title>Elecbits Sachait Cam Feed</title>
     </head>
 <body>
-<div id="wowza" style="width:100%;height:350px;text-align:center; background-color: red;">
+<div id="wowza" style="width: 1000px;height: 1000px;margin:0 auto;text-align:center; background-color: red;">
 </div>
  <script src="http://releases.flowplayer.org/js/flowplayer-3.2.13.min.js"></script>
 <script>
 $f("wowza", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", {
-    autoplay: true,
     clip: {
         //here the url is the link on which streaming is on
-        url: 'rtmp://34.70.60.34:1935/elecbits/stream1',
+        url: 'rtmp://35.239.70.45:1935/live/INEW-048971-LDHBE',
         scaling: 'fit',
         provider: 'red5'
     },
@@ -25,16 +21,10 @@ $f("wowza", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", {
         // here red5 is the streaming server, change if your server name is other
             url: "flowplayer.rtmp-3.2.13.swf",
              // netConnectionUrl defines where the streams are found
-            netConnectionUrl: 'rtmp://34.70.60.34:1935/elecbits/stream1'
+            netConnectionUrl: 'rtmp://35.239.70.45:1935/live/INEW-048971-LDHBE'
          }
     },
 });
-// setTimeout(function(){ console.log('hi');document.getElementById('wowza_api').click(); }, 3000);
-//$(document).ready(function() {
-//  setTimeout(function() {
-//    $("#wowza").trigger('click');console.log('clicked');
-//  }, 2000);
-//});
 </script>
 </body>
 </html>
