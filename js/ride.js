@@ -22,6 +22,7 @@ app.controller('myCtrl', function ($scope, $http) {
             $scope.getMobileNumber();
             $scope.getMode();
             $scope.getSensorValues();
+            $scope.stopSiren();
 
         } else {
             //window.location.href = '/signin.html';
@@ -191,6 +192,67 @@ app.controller('myCtrl', function ($scope, $http) {
 
     $scope.removeReload = function() {
         clearInterval(window.setIntervalVar);
+    }
+
+    $scope.siren = "off"
+
+    $scope.checkSiren = function() {
+        if($scope.siren == "off") {
+            $scope.startSiren();
+        }
+        else {
+            $scope.stopSiren();
+        }
+    }
+
+    $scope.startSiren = function (mode) {
+        $scope.siren = "on"
+        console.log('postSiren method called');
+        $http({
+            method: "POST",
+            url: _config.siren_api.invokeUrl + '/post',
+            headers: {
+                Authorization: $scope.authToken
+            },
+            data: JSON.stringify({
+                "siren": "ON",
+                "deviceId": $scope.deviceId
+            }),
+            contentType: 'application/json'
+        }).then(function mySuccess(response) {
+            if(response.status == 201) {
+                console.log('response', response);
+                //$scope.getMobileNumber();
+            }
+           // console.log(response);
+        }, function myError(response) {
+            console.log(response);
+        });
+    }
+
+    $scope.stopSiren = function (mode) {
+        console.log('stopSiren method called');
+        $scope.siren = "off"
+        $http({
+            method: "POST",
+            url: _config.siren_api.invokeUrl + '/post',
+            headers: {
+                Authorization: $scope.authToken
+            },
+            data: JSON.stringify({
+                "siren": "OFF",
+                "deviceId": $scope.deviceId
+            }),
+            contentType: 'application/json'
+        }).then(function mySuccess(response) {
+            if(response.status == 201) {
+                console.log('response', response);
+                //$scope.getMobileNumber();
+            }
+           // console.log(response);
+        }, function myError(response) {
+            console.log(response);
+        });
     }
 
     

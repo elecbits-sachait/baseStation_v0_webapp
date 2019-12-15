@@ -12,6 +12,9 @@ window._config = {
     },
     sensor_api: {
         invokeUrl: 'https://xt2jvtrnbi.execute-api.ap-south-1.amazonaws.com/test'
+    },
+    siren_api: {
+        invokeUrl: 'https://jh3yrpvuu7.execute-api.ap-south-1.amazonaws.com/test'
     }
 
 };
